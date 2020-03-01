@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+
+
+
+
+
+int main()
+{
+    int pound, shilling, penny, extraPenny, extraShilling, extraPound, answer;
+    double number;
+
+    cout << "Enter your money: £";
+    cin >> pound >> shilling >> penny;
+
+    
+
+    do{
+        int totalMainPenny = pound * 240 + shilling * 12 + penny;
+
+        char sign;
+
+        cout << "What do u want to do? ";
+        cin >> sign;
+
+        switch (sign)
+        {
+            case '+':{
+            cout << "Enter another sum: £";
+            cin >> extraPound >> extraShilling >> extraPenny;
+            int totalExtraPenny = extraPound * 240 + extraShilling * 12 + extraPenny;
+            answer = totalMainPenny + totalExtraPenny;
+
+            break;
+            }
+            case '-':{
+            cout << "Enter another sum: £";
+            cin >> extraPound >> extraShilling >> extraPenny;
+            int totalExtraPenny = extraPound * 240 + extraShilling * 12 + extraPenny;
+            answer = totalMainPenny - totalExtraPenny;
+
+            break;
+
+            }
+            case '/':{
+                cout << "Enter a number: ";
+                cin >> number;
+                answer = totalMainPenny / number;
+                break;
+            }
+            case '*':{
+                cout << "Enter a number: ";
+                cin >> number;
+                answer = totalMainPenny * number;
+                break;
+            }
+            default:{
+                cout << "Invalid value\n";
+                break;
+            }
+        }
+
+        pound = answer / 240;
+        shilling = answer % 240 / 12;
+        penny = answer % 12;
+            
+        cout << "Answer is £" << pound << " " << shilling << " " << penny << endl;
+
+        cout << "Do you wanna continue? (y/n)\n";
+        char reply;
+        cin >> reply;
+        if (reply == 'n' || reply != 'y'){
+            break;
+        }
+
+    }while(true);
+}
