@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+
+enum EType
+{
+    laborer, secretary, manager, accountant, executive, researcher 
+};
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+
+struct Employee
+{
+    int number;
+    double salary;
+    EType position;
+    Date date;
+    char pos_reply;
+
+
+    void setPosition(char pos_reply)
+    {
+        
+        switch (this -> pos_reply){
+            case 'l':{
+                position = laborer;
+                break;
+            }
+            case 's':{
+                position = secretary;
+                break;
+            }
+            case 'm':{
+                position = manager;
+                break;
+            }   
+            case 'a':{
+                position = accountant;
+                break;
+            }
+            case 'e':{
+                position = executive;
+                break;
+            }
+            case 'r':{
+                position = researcher;
+                break;
+            }
+        }   
+    }
+
+    string getPosition()
+    {   
+        switch (position){
+            case laborer:{
+                return "laborer";
+            }
+            case secretary:{
+                return "secretary";
+            }
+            case manager:{
+                return "manager";
+            }
+            case accountant:{
+                return "accountant";
+            }
+            case executive:{
+                return "executive";
+            }
+            case researcher:{
+                return "researcher";
+            }
+        }
+    }
+
+    
+
+};
+
+
+
+
+int main()
+{
+    char curSign, dateSign;
+    
+    Employee steve, tyler, cole;
+
+    cout << "Tell me about Steve: ";
+    cin >> steve.number >> steve.salary >> curSign >> steve.date.day >> dateSign >> steve.date.month >> dateSign >> steve.date.year >> steve.pos_reply;
+    steve.setPosition(steve.pos_reply);
+    cout << "Tell me about Tyler: ";
+    cin >> tyler.number >> tyler.salary >> curSign >> tyler.date.day >> dateSign >> tyler.date.month >> dateSign >> tyler.date.year >> tyler.pos_reply;
+    steve.setPosition(tyler.pos_reply);
+    cout << "Tell me about Cole: ";
+    cin >> cole.number >> cole.salary >> curSign >> cole.date.day >> dateSign >> cole.date.month >> dateSign >> cole.date.year >> cole.pos_reply;
+    steve.setPosition(cole.pos_reply);
+
+    
+    
+    
+
+
+    cout << "Steve: " << steve.number << " " << steve.salary << curSign << " " << steve.date.day << dateSign << steve.date.month << dateSign << steve.date.year << " " << steve.getPosition() << endl;
+    cout << "Tyler: " << tyler.number << " " << tyler.salary << curSign << " " << tyler.date.day << dateSign << tyler.date.month << dateSign << tyler.date.year << " " << tyler.getPosition() << endl;
+    cout << "Cole: " << cole.number << " " << cole.salary << curSign << " " << cole.date.day << dateSign << cole.date.month << dateSign << cole.date.year << " " << cole.getPosition() << endl;
+
+
+    
+
+}
